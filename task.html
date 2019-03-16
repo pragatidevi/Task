@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Angular Js demo</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body>
+
+	<div ng-app="myApp" ng-controller="myctrl" class="container">
+       
+        <div class="row" ng-show="isView">
+            <div class="col-12 col-md-8 my-4">
+                <h3>Product List</h3>
+               <table class="table table-bordered table-stripped"> 
+                    <tr>
+                        <th>sr</th>
+                        <th>Item</th>
+                        <th>Product</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Tprice</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+
+                    <tr ng-repeat="x in itemArray">
+                        <td><label>{{$index + 1}}</label></td>
+                        <td><img src="{{x.item}}" width="50" height="50"></td>
+                        <td><label>{{x.product}}</label></td>
+                        <td><label>{{x.price}}</label></td>
+                        <td style="width:120px;"><div class="input-group">
+                                <button ng-click="x.count = x.count - 1">
+                                    -
+                                </button>
+                                 <input type="text" name="" class="form-control" ng-model="x.count" >
+                                <button ng-click="x.count = x.count+1" ng-init="x.count=0">
+                                    +
+                                </button>
+                            <div>
+                        </td>
+                        <td>{{x.price * x.count }}</td>
+                        <td><a  href="#" ng-click="edit(x.id)">edit</a></td>
+                        <td><a href="#" ng-click="delete(x.id)">delete</a></td>
+
+
+                    </tr>
+                    <tr>
+                        <td><button class="btn btn-sm btn-success" ng-click="viewProduct()">View</button></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td> Total </td>
+                        <td>{{getTotal()}}</td>
+                    </tr>
+                </table> 
+            </div>
+            <div class="col-12 col-md-4 my-4">
+                <h5><b>Add Product</b></h5>
+                <div>
+                    <label>Product</label>
+                    <input type="text" class="form-control" ng-model="newMovie.product" />
+                </div>
+                <div>
+                    <label>Item</label>
+                    <input type="text" class="form-control" ng-model="newMovie.price" />
+                </div>
+                <input type="hidden" ng-model="newMovie.id" />
+                <div class="float-right">
+                   <button ng-click="save()" class="btn btn-sm btn-success mt-2"> Save </button></li>
+                </div>
+            </div>
+        </div>
+        <div class="row" ng-show="isList">
+            <div class="col-12">
+                <h3>Indivisuals</h3>
+                <table class="table">
+                    <table class="table table-bordered table-stripped"> 
+                    <tr>
+                        <th>Code</th>
+                        <th>Item</th>
+                        <th>Product</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Tprice</th>
+                        <th></th>
+                    </tr>
+
+                    <tr ng-repeat="x in newitemArray" >
+                        <td ><label>{{$index + 1}}</label></td>
+                        <td ><img src="{{x.item}}" width="50" height="50"></td>
+                        <td ><label>{{x.product}}</label></td>
+                        <td ><label>{{x.price}}</label></td>
+                        <td >{{x.count}}
+                        </td>
+                        <td >{{x.price * x.count }}</td>
+                        <td ><a href="#" ng-click="removeIndivisul()">delete</a></td>
+
+                    </tr>
+                    <tr>
+                        <td><button class="btn btn-sm btn-dark" ng-click="back();">Back</button></td>
+                        <td>  </td>
+                        <td></td>
+                        <td></td>
+                        <td>Total</td>
+                        <td>{{getTotal()}}</td>
+                    </tr>
+               </table>
+            </div>
+        </div>
+        
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="task.js"></script>
+</body>
+</html>
