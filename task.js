@@ -76,20 +76,15 @@ var app = angular.module('myApp', []);
                     }
                    );
 
-                console.log(ar);
+                // console.log(ar);
                 $scope.newitemArray = ar;
             }
             $scope.back = function(){
                 $scope.isView= true;
                 $scope.isList= false;
             }
-            $scope.removeIndivisul = function(){
-                var newDataList=[];
-                angular.forEach($scope.newitemArray,function(v){
-                if(!v.isDelete){
-                    newDataList.push(v);
-                }
-                });    $scope.newitemArray=newDataList;
+            $scope.removeIndivisul = function(idx){
+                $scope.newitemArray.splice(idx, 1);
             };
             $scope.xitemArray=[];
             $scope.getTotal = function(){
@@ -103,7 +98,7 @@ var app = angular.module('myApp', []);
                 }
                );
             $scope.xitemArray = ar;
-            console.log($scope.xitemArray);
+            // console.log($scope.xitemArray);
             var total = 0;
             for(var i = 0; i < $scope.xitemArray.length; i++){
                 var p = $scope.xitemArray[i];

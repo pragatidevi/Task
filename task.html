@@ -59,13 +59,13 @@
                 <h5><b>Add Product</b></h5>
                 <div>
                     <label>Product</label>
-                    <input type="text" class="form-control" ng-model="newMovie.product" />
+                    <input type="text" class="form-control" ng-model="newitem.product" />
                 </div>
                 <div>
-                    <label>Item</label>
-                    <input type="text" class="form-control" ng-model="newMovie.price" />
+                    <label>Price</label>
+                    <input type="text" class="form-control" ng-model="newitem.price" />
                 </div>
-                <input type="hidden" ng-model="newMovie.id" />
+                <input type="hidden" ng-model="newitem.id" />
                 <div class="float-right">
                    <button ng-click="save()" class="btn btn-sm btn-success mt-2"> Save </button></li>
                 </div>
@@ -94,7 +94,7 @@
                         <td >{{x.count}}
                         </td>
                         <td >{{x.price * x.count }}</td>
-                        <td ><a href="#" ng-click="removeIndivisul()">delete</a></td>
+                        <td ><a href="#" ng-click="removeIndivisul($index)">delete</a></td>
 
                     </tr>
                     <tr>
